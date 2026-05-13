@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Roulette } from '../components/games/Roulette';
-import { ScratchCard } from '../components/games/ScratchCard';
-import { SlotMachine } from '../components/games/SlotMachine';
-import { SuccessModal } from '../components/common/SuccessModal';
-import { authService } from '../services/authService';
-import { userService } from '../services/userService';
+import { Roulette } from '../components/Roulette';
+import { ScratchCard } from '../components/ScratchCard';
+import { SlotMachine } from '../components/SlotMachine';
+import { SuccessModal } from '../components/SuccessModal';
+import { authService } from '../../auth/services/authService';
+import { userService } from '../../auth/services/userService';
 import { Gamepad2, Eraser, RotateCw, Trophy, Star, Coins } from 'lucide-react';
 
 export const Minigames: React.FC = () => {
