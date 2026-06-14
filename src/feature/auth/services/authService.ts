@@ -26,6 +26,16 @@ export const authService = {
     localStorage.removeItem('user');
   },
 
+  async forgotPassword(email: string) {
+    const response = await axios.post(`${API_URL}/forgot-password`, { email });
+    return response.data;
+  },
+
+  async resetPassword(email: string, code: string, newPassword: string) {
+    const response = await axios.post(`${API_URL}/reset-password`, { email, code, newPassword });
+    return response.data;
+  },
+
   getCurrentUser() {
     const userStr = localStorage.getItem('user');
     return userStr ? JSON.parse(userStr) : null;

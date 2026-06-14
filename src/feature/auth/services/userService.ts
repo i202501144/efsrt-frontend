@@ -21,5 +21,18 @@ export const userService = {
       prize
     });
     return response.data;
+  },
+
+  async buyTicket(userId: string, raffleId: string) {
+    const response = await axios.post(`${API_URL}/buy-ticket`, {
+      userId,
+      raffleId
+    });
+    return response.data;
+  },
+
+  async getUserTickets(userId: string) {
+    const response = await axios.get(`${API_URL}/${userId}/tickets`);
+    return response.data;
   }
 };

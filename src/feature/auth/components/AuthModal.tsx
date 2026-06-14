@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Lock, User } from 'lucide-react';
-import { authService } from '../../services/authService';
+import { authService } from '../services/authService';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -61,7 +61,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess
                   {isLogin ? '¡Bienvenido de nuevo!' : 'Crea tu cuenta'}
                 </h2>
                 <p className="text-slate-400">
-                  {isLogin ? 'Ingresa tus datos para continuar' : 'Únete a la comunidad LuckyWave'}
+                  {isLogin ? 'Ingresa tus datos para continuar' : 'Únete a la comunidad RafflePass'}
                 </p>
               </div>
 

@@ -3,10 +3,10 @@ import { motion, useAnimation } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Coins } from 'lucide-react';
 
-const SYMBOLS = ['🍎', '💎', '🍋', '🔔', '🍒', '⭐', '7️⃣'];
+const SYMBOLS = ['📺', '💻', '❄️', '📱', '🧺', '🎮', '🔊'];
 
 export const SlotMachine: React.FC<{ onWin?: (prize: string) => void }> = ({ onWin }) => {
-  const [reels, setReels] = useState(['7️⃣', '7️⃣', '7️⃣']);
+  const [reels, setReels] = useState(['📺', '📺', '📺']);
   const [spinning, setSpinning] = useState(false);
   const [spinCount, setSpinCount] = useState(0);
   const controls = [useAnimation(), useAnimation(), useAnimation()];
@@ -60,10 +60,10 @@ export const SlotMachine: React.FC<{ onWin?: (prize: string) => void }> = ({ onW
   };
 
   return (
-    <div className="flex flex-col items-center bg-slate-900 p-8 rounded-[40px] border-4 border-slate-800 shadow-2xl">
-      <div className="flex gap-4 mb-10 bg-black/40 p-6 rounded-3xl border border-white/5">
+    <div className="flex flex-col items-center bg-white p-8 rounded-[40px] border-4 border-purple-100 shadow-2xl shadow-purple-500/5">
+      <div className="flex gap-4 mb-10 bg-purple-50/60 p-6 rounded-3xl border border-purple-100/50 shadow-inner">
         {reels.map((symbol, i) => (
-          <div key={i} className="w-24 h-32 bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center text-5xl shadow-inner border border-white/5 overflow-hidden">
+          <div key={i} className="w-24 h-32 bg-gradient-to-b from-white to-purple-50 rounded-2xl flex items-center justify-center text-5xl shadow-md border border-purple-100/80 overflow-hidden">
             <motion.div animate={controls[i]}>
               {symbol}
             </motion.div>
@@ -75,7 +75,7 @@ export const SlotMachine: React.FC<{ onWin?: (prize: string) => void }> = ({ onW
         onClick={spin}
         disabled={spinning}
         className={`group relative px-12 py-5 rounded-2xl font-black text-xl transition-all active:scale-95 ${
-          spinning ? 'bg-slate-700 text-slate-500 cursor-not-allowed' : 'bg-gradient-to-r from-yellow-500 to-orange-600 text-white shadow-xl shadow-orange-500/20 hover:from-yellow-400 hover:to-orange-500'
+          spinning ? 'bg-purple-100 text-purple-400 cursor-not-allowed' : 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-xl shadow-pink-500/20 hover:from-pink-400 hover:to-purple-500'
         }`}
       >
         <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export const SlotMachine: React.FC<{ onWin?: (prize: string) => void }> = ({ onW
         </div>
       </button>
       
-      <p className="mt-6 text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">
+      <p className="mt-6 text-[10px] font-black text-purple-600 uppercase tracking-[0.2em]">
         Consigue 3 iguales para ganar el Jackpot
       </p>
     </div>

@@ -34,31 +34,31 @@ export const Roulette: React.FC<RouletteProps> = ({ options, onFinish }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-8 bg-slate-900 rounded-3xl shadow-2xl border border-slate-800">
-      <h2 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-        Ruleta de Premios
+    <div className="flex flex-col items-center justify-center p-8 bg-white rounded-3xl shadow-xl border-2 border-purple-100 w-full max-w-[420px] shadow-purple-500/5">
+      <h2 className="text-3xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 uppercase tracking-wide">
+        Ruleta
       </h2>
       
       <div className="relative w-80 h-80 mb-10">
         {/* Pointer */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 w-8 h-10 bg-red-500 clip-path-triangle shadow-lg border-2 border-white"></div>
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 w-8 h-10 bg-red-500 clip-path-triangle shadow-md border-2 border-white"></div>
         
         <motion.div
           animate={controls}
-          className="w-full h-full rounded-full border-8 border-slate-700 shadow-2xl overflow-hidden relative"
+          className="w-full h-full rounded-full border-8 border-purple-50 shadow-xl overflow-hidden relative"
           style={{ 
             background: `conic-gradient(${options.map((_, i) => 
-              `${i % 2 === 0 ? '#3b82f6' : '#8b5cf6'} ${(i * 360) / options.length}deg ${((i + 1) * 360) / options.length}deg`
+              `${i % 2 === 0 ? '#ec4899' : '#8b5cf6'} ${(i * 360) / options.length}deg ${((i + 1) * 360) / options.length}deg`
             ).join(', ')})`
           }}
         >
           {options.map((option, i) => (
             <div
               key={i}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-start justify-center pt-8 text-white font-bold text-sm"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-start justify-center pt-8 text-white font-black text-xs"
               style={{ transform: `translate(-50%, -50%) rotate(${(i * 360 / options.length) + (180 / options.length)}deg)` }}
             >
-              <span style={{ transform: 'rotate(0deg)' }}>{option}</span>
+              <span>{option}</span>
             </div>
           ))}
         </motion.div>
@@ -67,14 +67,14 @@ export const Roulette: React.FC<RouletteProps> = ({ options, onFinish }) => {
         <button
           onClick={handleSpinClick}
           disabled={mustSpin}
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white text-slate-900 font-bold shadow-xl border-4 border-slate-700 hover:scale-110 transition-transform active:scale-95 flex items-center justify-center ${mustSpin ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-gradient-to-tr from-pink-500 to-rose-600 text-white font-black shadow-xl border-4 border-white hover:scale-110 transition-transform active:scale-95 flex items-center justify-center ${mustSpin ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
-          SPIN
+          GIRAR
         </button>
       </div>
 
-      <div className="text-slate-400 text-center italic">
-        ¡Participa solo si estás suscrito!
+      <div className="text-purple-400 text-center italic text-sm font-black">
+        ¡Participa y gana al instante!
       </div>
     </div>
   );
